@@ -1,6 +1,7 @@
 # Movie-Recommendation-System
 
 • Developed a movie recommendation system that leveraged the cosine similarity algorithm to provide personalized movie recommendations to users.
+
 • The system aimed to enhance user engagement and satisfaction on a movie streaming platform.
 
 # How to run the project?
