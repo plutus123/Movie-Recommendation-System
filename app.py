@@ -4,6 +4,18 @@ import pandas as pd
 import numpy as np
 import requests
 
+def download_file_from_drive():
+    file_url = 'https://drive.google.com/file/d/1j1J6QtDFei-zXCw_YMfEbwPJOZXCRaya/view?usp=drive_link'
+    response = requests.get(file_url)
+
+    with open('similarity.pkl', 'wb') as f:
+        f.write(response.content)
+
+download_file_from_drive()
+
+
+
+
 
 url = "https://api.themoviedb.org/3/trending/movie/day?language=en-US"
 
