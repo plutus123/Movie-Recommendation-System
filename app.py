@@ -54,6 +54,8 @@ def download_file_from_drive():
 
 download_file_from_drive()
 
+
+similarity = None
 try:
     similarity = pickle.load(open("similarity.pkl", "rb"))
 except Exception as e:
