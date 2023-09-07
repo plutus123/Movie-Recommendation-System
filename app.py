@@ -43,10 +43,10 @@ movies = pd.DataFrame(movies_dict)
 def download_file_from_drive():
     try:
         
-        response = requests.get("https://drive.google.com/file/d/1muMzugjmHpQcMxNS0Wn-_V4kiY4DH0Dg/view?usp=drive_link")
+        response = requests.get("https://drive.google.com/file/d/1muMzugjmHpQcMxNS0Wn-_V4kiY4DH0Dg/view?usp=sharing")
         response.raise_for_status()  # This will raise an HTTPError if the request returns an unsuccessful status code
 
-        with open('movie-recommendation-system/similarity.pkl', 'wb') as f:
+        with open('similarity.pkl', 'wb') as f:
             f.write(response.content)
 
     except Exception as e:
