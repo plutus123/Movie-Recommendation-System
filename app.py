@@ -57,7 +57,7 @@ download_file_from_drive()
 
 similarity = None
 try:
-    similarity = pickle.load(open("similarity.pkl", "rb"))
+    similarity = pickle.load(open("movie-recommendation-system/similarity.pkl", "rb"))
 except Exception as e:
     st.error(f"An error occurred while loading the similarity data: {e}")
 
