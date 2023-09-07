@@ -4,6 +4,8 @@ import pandas as pd
 import numpy as np
 import requests
 
+from base.py import similarity_base64
+import base64
 
 url = "https://api.themoviedb.org/3/trending/movie/day?language=en-US"
 
@@ -42,19 +44,11 @@ movies = pd.DataFrame(movies_dict)
 
 
 
-def download_file_from_drive():
-    try:
-        file_url = 'https://drive.google.com/file/d/1j1J6QtDFei-zXCw_YMfEbwPJOZXCRaya/view?usp=drive_link'
-        response = requests.get(file_url)
-        response.raise_for_status()  # This will raise an HTTPError if the request returns an unsuccessful status code
+similarity_bytes = base64.b64decode(similarity_base64)
+with open('similarity.pkl', 'wb') as f:
+    f.write(similarity_bytes)
 
-        with open('similarity.pkl', 'wb') as f:
-            f.write(response.content)
 
-    except Exception as e:
-        st.error(f"An error occurred while downloading the file: {e}")
-
-download_file_from_drive()
 
 
 
