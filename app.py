@@ -46,7 +46,7 @@ def download_file_from_drive():
         response = requests.get("https://drive.google.com/file/d/1muMzugjmHpQcMxNS0Wn-_V4kiY4DH0Dg/view?usp=drive_link")
         response.raise_for_status()  # This will raise an HTTPError if the request returns an unsuccessful status code
 
-        with open('similarity.pkl', 'wb') as f:
+        with open('movie-recommendation-system/similarity.pkl', 'wb') as f:
             f.write(response.content)
 
     except Exception as e:
@@ -57,7 +57,7 @@ download_file_from_drive()
 
 similarity = None
 try:
-    similarity = pickle.load(open("movie-recommendation-system/similarity.pkl", "rb"))
+    similarity = pickle.load(open("similarity.pkl", "rb"))
 except Exception as e:
     st.error(f"An error occurred while loading the similarity data: {e}")
 
