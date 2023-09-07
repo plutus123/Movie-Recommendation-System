@@ -4,22 +4,6 @@ import pandas as pd
 import numpy as np
 import requests
 
-def download_file_from_drive():
-    try:
-        file_url = 'https://drive.google.com/file/d/1j1J6QtDFei-zXCw_YMfEbwPJOZXCRaya/view?usp=drive_link'
-        response = requests.get(file_url)
-        response.raise_for_status()  # This will raise an HTTPError if the request returns an unsuccessful status code
-
-        with open('similarity.pkl', 'wb') as f:
-            f.write(response.content)
-
-    except Exception as e:
-        st.error(f"An error occurred while downloading the file: {e}")
-
-download_file_from_drive()
-
-
-
 
 url = "https://api.themoviedb.org/3/trending/movie/day?language=en-US"
 
@@ -54,6 +38,26 @@ def recommend(movie):
 
 movies_dict = pickle.load(open("movies_list.pkl", "rb"))
 movies = pd.DataFrame(movies_dict)
+
+
+
+
+def download_file_from_drive():
+    try:
+        file_url = 'https://drive.google.com/file/d/1j1J6QtDFei-zXCw_YMfEbwPJOZXCRaya/view?usp=drive_link'
+        response = requests.get(file_url)
+        response.raise_for_status()  # This will raise an HTTPError if the request returns an unsuccessful status code
+
+        with open('similarity.pkl', 'wb') as f:
+            f.write(response.content)
+
+    except Exception as e:
+        st.error(f"An error occurred while downloading the file: {e}")
+
+download_file_from_drive()
+
+
+
 similarity = pickle.load(open("similarity.pkl", "rb"))
 
 st.title("Movie Recommendation System")
