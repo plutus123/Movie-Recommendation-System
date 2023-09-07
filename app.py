@@ -5,14 +5,18 @@ import numpy as np
 import requests
 
 def download_file_from_drive():
-    file_url = 'https://drive.google.com/file/d/1j1J6QtDFei-zXCw_YMfEbwPJOZXCRaya/view?usp=drive_link'
-    response = requests.get(file_url)
+    try:
+        file_url = 'https://drive.google.com/file/d/1j1J6QtDFei-zXCw_YMfEbwPJOZXCRaya/view?usp=drive_link'
+        response = requests.get(file_url)
+        response.raise_for_status()  # This will raise an HTTPError if the request returns an unsuccessful status code
 
-    with open('similarity.pkl', 'wb') as f:
-        f.write(response.content)
+        with open('similarity.pkl', 'wb') as f:
+            f.write(response.content)
+
+    except Exception as e:
+        st.error(f"An error occurred while downloading the file: {e}")
 
 download_file_from_drive()
-
 
 
 
