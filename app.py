@@ -40,29 +40,10 @@ movies_dict = pickle.load(open("movies_list.pkl", "rb"))
 movies = pd.DataFrame(movies_dict)
 
 
-def download_file_from_drive():
-    try:
-        
-        response = requests.get("https://drive.google.com/file/d/1muMzugjmHpQcMxNS0Wn-_V4kiY4DH0Dg/view?usp=sharing")
-        response.raise_for_status()  # This will raise an HTTPError if the request returns an unsuccessful status code
-
-        with open('similarity.pkl', 'wb') as f:
-            f.write(response.content)
-
-    except Exception as e:
-        st.error(f"An error occurred while downloading the file: {e}")
-
-download_file_from_drive()
 
 
-similarity = None
-try:
-    similarity = pickle.load(open("similarity.pkl", "rb"))
-except Exception as e:
-    st.error(f"An error occurred while loading the similarity data: {e}")
 
-
-# similarity = pickle.load(open("similarity.pkl", "rb"))
+similarity = pickle.load(open("similarity.pkl", "rb"))
 
 st.title("Movie Recommendation System")
 
