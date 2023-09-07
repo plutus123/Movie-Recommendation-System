@@ -12,4 +12,6 @@
 5. Then run the command streamlit run app.py on the terminal.
 
 # Live Demo
-https://youtu.be/-FKuBIqChkI
+
+
+[streamlit-app-2023-09-07-15-09-46.webm](https://github.com/plutus123/Movie-Recommendation-System/assets/128125148/c4e157c9-e17a-47eb-99e3-bb0c9da4dc23)
